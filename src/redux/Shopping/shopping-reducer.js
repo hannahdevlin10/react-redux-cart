@@ -36,7 +36,7 @@ const INITIAL_STATE = {
           "Sony 5 Disc CD Player- CDPCE375/ 5 Disc Changer/ Variable Line Output/ CD-R/RW Playback Capability/ 20 Track Music Calendar/ Digital Servo Control/ Remote Commander Remote Control",
         price: 149.0,
         image:
-          "https://lh3.googleusercontent.com/proxy/Sgr3ODgD28ovt3aKgUGZynd3SH761dzoBlI6g5bEv5XOAwrNteNTVV9U6h6kThl2iCYGpxAEVh25MycP3q7xfmrZR3760aZQNLF_cI8woEr6U0iqumGD2a1MOgUmAK-vcX_kEo3yy9hGrFLuuFRf1RLebKFkM6rfDnI",
+          "https://cdn.shopify.com/s/files/1/1683/2705/products/Sony-CDP-CE375-5-Disc-Carousel-CD-Player-Changer-w-Optical-Digital-Audio-and-Disc-Exchange-BEST-SELLER-Electronics-2_868fad75-ae3b-4955-971b-3836ae751f53_750x750.jpg?v=1631574450",
     },
     {
         id: 5,
