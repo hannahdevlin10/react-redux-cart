@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import SingleItem from "./components/SingleItem/SingleItem";
+import PurchaseComplete from "./components/PurchaseComplete/PurchaseComplete";
 
 function App({ current }) {
   return (
@@ -22,6 +23,7 @@ function App({ current }) {
         <Switch>
           <Route exact path="/" component={Products} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/complete" component={PurchaseComplete} />
           {!current ? (
             <Redirect to="/" />
           ) : (

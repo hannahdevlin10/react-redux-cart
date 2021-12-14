@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
 import styles from "./CartItem.module.css";
 
 import { connect } from "react-redux";
@@ -43,10 +44,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
           onClick={() => removeFromCart(item.id)}
           className={styles.actions__deleteItemBtn}
         >
-          <img
-            src="https://image.flaticon.com/icons/svg/709/709519.svg"
-            alt=""
-          />
+          <DeleteIcon />
         </button>
       </div>
     </div>

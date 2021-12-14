@@ -4,6 +4,8 @@ import styles from "./Cart.module.css";
 import { connect } from "react-redux";
 
 import CartItem from "./CartItem/CartItem";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -35,9 +37,11 @@ const Cart = ({ cart }) => {
           <span>TOTAL: ({totalItems} items)</span>
           <span>$ {totalPrice}</span>
         </div>
-        <button className={styles.summary__checkoutBtn}>
-          Proceed To Checkout
-        </button>
+        <Link to='/complete'>
+          <Button color="success" variant="contained" disabled={!totalItems}>
+            Proceed To Checkout
+          </Button>
+        </Link>
       </div>
     </div>
   );
