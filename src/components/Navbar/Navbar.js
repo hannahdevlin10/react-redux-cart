@@ -20,11 +20,10 @@ const Navbar = ({ cart }) => {
   return (
     <div className={styles.navbar}>
       <Link to="/">
-        <h2 className={styles.navbar__logo}>Redux Shopping Cart</h2>
+        <h2 className={styles.navbar__logo}>Vintage Tech Store</h2>
       </Link>
       <Link to="/cart">
         <div className={styles.navbar__cart}>
-          <h3 className={styles.cart__title}>Cart</h3>
           <ShoppingCartIcon className={styles.cart__image} />
           <div className={styles.cart__counter}>{cartCount}</div>
         </div>

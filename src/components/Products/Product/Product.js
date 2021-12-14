@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Product.module.css";
 
-// Redux
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 import { connect } from "react-redux";
 import {
   loadCurrentItem,
@@ -10,36 +14,55 @@ import {
 } from "../../../redux/Shopping/shopping-actions";
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
+
+  function truncate (str, limit) {
+    let sub = str.substring(0, limit);
+    return (
+      <div> 
+        {
+          sub.length >= 48 ? (
+          <div>
+            {sub} ...
+          </div>
+          ) : (
+          <div>
+            {sub}
+          </div>
+          )
+        }
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.product}>
-      <img
-        className={styles.product__image}
-        src={product.image}
-        alt={product.title}
-      />
-
-      <div className={styles.product__details}>
-        <p className={styles.details__title}>{product.title}</p>
-        <p className={styles.details__desc}>{product.description}</p>
-        <p className={styles.details__price}>$ {product.price}</p>
-      </div>
-
-      <div className={styles.product__buttons}>
-        <Link to={`/product/${product.id}`}>
-          <button
-            onClick={() => loadCurrentItem(product)}
-            className={`${styles.buttons__btn} ${styles.buttons__view}`}
-          >
-            View Item
-          </button>
-        </Link>
-        <button
-          onClick={() => addToCart(product.id)}
-          className={`${styles.buttons__btn} ${styles.buttons__add}`}
-        >
-          Add To Cart
-        </button>
-      </div>
+    <div style={{ margin: '65px 0px' }}>
+      <Card sx={{ width: 375, maxWidth: 375, height: 420, maxHeight: 420 }}>
+        <CardMedia
+          component="img"
+          height="180"
+          image={product?.image}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {truncate(product?.title, 48)}
+            {product.title.length <= 25 ? <br></br> : ''}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {truncate(product?.description, 125)}
+          </Typography>
+        </CardContent>
+        <div style={{ textAlign: 'center', padding: 20 }}>
+          <span>
+            <Link to={`/product/${product.id}`}>
+              <Button onClick={() => loadCurrentItem(product)} color="primary"size="small">View</Button>
+            </Link>
+          </span>
+          <span>
+            <Button onClick={() => addToCart(product.id)} color="success" variant="contained" size="small">Add to Cart</Button>
+          </span>
+        </div>
+      </Card>
     </div>
   );
 };
