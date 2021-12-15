@@ -5,3 +5,7 @@
 a {
   text-decoration: none;
 }
+
+.css-10yiyq0-MuiPaper-root-MuiCard-root {
+  box-shadow: none !important;
+}

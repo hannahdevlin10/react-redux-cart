@@ -35,9 +35,9 @@ export const loadCurrentItem = (item) => {
   };
 };
 
-export const getProducts = (products) => {
-    return {
-      type: actionTypes.GET_PRODUCTS,
-      payload: products,
-    };
+export const setSelectedOption = (item) => {
+  return {
+    type: actionTypes.SET_SELECTED_OPTION,
+    payload: item,
   };
+};

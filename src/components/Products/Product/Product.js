@@ -59,7 +59,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
             </Link>
           </span>
           <span>
-            <Button onClick={() => addToCart(product.id)} color="success" variant="contained" size="small">Add to Cart</Button>
+            <Button onClick={() => addToCart(product.id)} color="secondary" variant="contained" size="small">Add to Cart</Button>
           </span>
         </div>
       </Card>

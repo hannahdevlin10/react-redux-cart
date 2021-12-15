@@ -3,6 +3,7 @@ import styles from "./SingleItem.module.css";
 
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/Shopping/shopping-actions";
+import { Button } from "@mui/material";
 
 const SingleItem = ({ current, addToCart }) => {
   return (
@@ -17,12 +18,13 @@ const SingleItem = ({ current, addToCart }) => {
         <p className={styles.details__description}>{current.description}</p>
         <p className={styles.details__price}>$ {current.price}</p>
 
-        <button
+        <Button
           onClick={() => addToCart(current.id)}
-          className={styles.details__addBtn}
+          color="secondary"
+          variant="contained"
         >
           Add To Cart
-        </button>
+        </Button>
       </div>
     </div>
   );

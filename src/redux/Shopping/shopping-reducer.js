@@ -140,6 +140,7 @@ const INITIAL_STATE = {
   ],
   cart: [],
   currentItem: null,
+  selectedOption: null
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -180,6 +181,11 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentItem: action.payload,
+      };
+    case actionTypes.SET_SELECTED_OPTION:
+      return {
+        ...state,
+        selectedOption: action.payload,
       };
     default:
       return state;
