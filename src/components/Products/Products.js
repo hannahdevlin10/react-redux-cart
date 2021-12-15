@@ -19,7 +19,7 @@ const Products = ({ products, selectedOption }) => {
 
     let resultSecond = secondHalf?.find((res) => res?.title === selectedOption)
     resultSecond ? setSelectedDataSec(resultSecond) : setSelectedDataSec(null);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOption])
 
   return (
