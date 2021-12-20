@@ -128,19 +128,11 @@ const INITIAL_STATE = {
         image:
           "https://images.crutchfieldonline.com/ImageHandler/trim/750/457/products/2009/05/158/x158STR197B-f.jpeg",
     },
-    {
-        id: 15,
-        title: "Bose Second Zone Remote - PMC2",
-        description:
-          "Bose Second Zone Remote - PMC2/ Controls Lifestyle 38 Or 48 Media Center/ TV, VCR, Cable Box, Satellite Receiver/ Accesses Digitally Stored CDs In UMusic System",
-        price: 25.0,
-        image:
-          "https://a1.amlimg.com/YzNjYWE5OGM4ZjhkNDUzN2I0MzA5ZDFlYTc1YTExYmPj_eIOdGbpEx7bnDhDQhjNaHR0cDovL21lZGlhLmFkc2ltZy5jb20vZmNkMjUzYjFmOWYyMzk5MjE1Zjk5NGJmYjBiNzQ2ZWJkNzFjNjJjMWMyOTk0NTk4NDE3MjYyNjIzM2YwNzg2MS5qcGd8fHx8fHwzOTZ4MjYwfGh0dHA6Ly93d3cuYWR2ZXJ0cy5pZS9zdGF0aWMvaS93YXRlcm1hcmsucG5nfHx8.jpg",
-    },
   ],
   cart: [],
   currentItem: null,
-  selectedOption: null
+  selectedOption: null,
+  selectedBrand: null
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -186,6 +178,11 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         selectedOption: action.payload,
+      };
+    case actionTypes.SET_SELECTED_BRAND:
+      return {
+        ...state,
+        selectedBrand: action.payload,
       };
     default:
       return state;

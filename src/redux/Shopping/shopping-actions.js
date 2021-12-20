@@ -41,3 +41,10 @@ export const setSelectedOption = (item) => {
     payload: item,
   };
 };
+
+export const setSelectedBrand = (item) => {
+  return {
+    type: actionTypes.SET_SELECTED_BRAND,
+    payload: item,
+  };
+};

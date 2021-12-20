@@ -11,7 +11,8 @@ const Products = ({ products, selectedOption }) => {
   const [selectedDataFirst, setSelectedDataFirst] = useState(null);
   const [selectedDataSec, setSelectedDataSec] = useState(null);
 
-  let opts = products?.map((prod) => prod?.title)
+  let opts = products?.map((prod) => prod?.title);
+  let brands = ['Sony', 'Panasonic', 'Bose', 'Denon'];
   
   useEffect(() => {
     let resultFirst = firstHalf?.find((res) => res?.title === selectedOption)
