@@ -3,30 +3,39 @@ import styles from "./SingleItem.module.css";
 
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/Shopping/shopping-actions";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 
 const SingleItem = ({ current, addToCart }) => {
   return (
-    <div className={styles.singleItem}>
-      <img
-        className={styles.singleItem__image}
-        src={current.image}
-        alt={current.title}
-      />
-      <div className={styles.singleItem__details}>
-        <p className={styles.details__title}>{current.title}</p>
-        <p className={styles.details__description}>{current.description}</p>
-        <p className={styles.details__price}>$ {current.price}</p>
-
-        <Button
-          onClick={() => addToCart(current.id)}
-          color="secondary"
-          variant="contained"
-        >
-          Add To Cart
-        </Button>
+    <Paper style={{ width: '60%', marginLeft: '20%', marginRight: '20%', minWidth: "820px", marginTop: '116px', padding: '20px 0px' }}>
+      <div className={styles.singleItem}>
+        <img
+          className={styles.singleItem__image}
+          src={current.image}
+          alt={current.title}
+        />
+        <div className={styles.singleItem__details}>
+          <span style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <p className={styles.details__title}>{current.title}</p>
+            <p className={styles.details__price}>€ {current.price}</p>
+          </span>
+        
+          <p style={{ color: 'grey', marginTop: -25 }}>Author: {current.author}</p>
+          <p style={{ color: 'grey', marginTop: -50 }}>Genre: {current.genre}</p>
+          <p className={styles.details__description}>{current.description}</p> 
+          <span style={{ width: '60%', display: 'flex', justifyContent: 'right' }}>
+            <Button
+              onClick={() => addToCart(current.id)}
+              color="success"
+              variant="contained"
+            >
+              Add To Cart
+            </Button>
+          </span>
+        </div>
       </div>
-    </div>
+    </Paper>
+    
   );
 };
 

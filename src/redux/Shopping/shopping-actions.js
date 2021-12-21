@@ -42,9 +42,15 @@ export const setSelectedOption = (item) => {
   };
 };
 
-export const setSelectedBrand = (item) => {
+export const setSelectedFilter = (item) => {
   return {
-    type: actionTypes.SET_SELECTED_BRAND,
+    type: actionTypes.SET_SELECTED_FILTER,
     payload: item,
+  };
+};
+
+export const clearCart = () => {
+  return {
+    type: actionTypes.CLEAR_CART
   };
 };

@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { setSelectedBrand, setSelectedOption } from "../../redux/Shopping/shopping-actions";
+import { setSelectedOption, setSelectedFilter } from "../../redux/Shopping/shopping-actions";
 import { Autocomplete, Button, TextField } from '@mui/material';
 
-function Filter ({ options, setSelectedOption, tags }) {
-
+function Filter ({ options, setSelectedOption, setSelectedFilter, selectedFilter, tags }) {
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ width: '65%' }}>
+            <div style={{ width: '64%' }}>
                 <Autocomplete
                     disablePortal
                     id="cases-by-date-filter"
@@ -16,25 +15,27 @@ function Filter ({ options, setSelectedOption, tags }) {
                     onChange={(event, value) => {
                        setSelectedOption(value);
                     }}
-                    renderInput={(params) => <TextField {...params} label="Select Product" />}
+                    renderInput={(params) => <TextField {...params} label={`Search by ${selectedFilter}`} />}
                 />
             </div>
-            <div style={{ width: '35%', height: 55, padding: '10px 0px 10px 5px', textAlign: 'right' }}>
-                {
-                    tags?.map((tag) => (
-                        <span style={{ margin: 5 }} key={tag}>
-                            <Button
-                                variant="contained"
-                                size="small"
-                                value={tag}
-                                onClick={(e) => {
-                                    setSelectedBrand(e.target.value);
-                                }}>
-                                {tag}
-                            </Button>
-                        </span>
-                    ))
-                }
+            <div style={{ width: '36%', height: 55, textAlign: 'right', display: 'flex', justifyContent: 'right', paddingTop: 6 }}>
+                <span style={{ padding: '11px 6px 0px 0px' }}>
+                    Filter by: 
+                </span>
+                {tags?.map((tag) => (
+                    <span style={{ margin: '5px 2px' }} key={tag}>
+                        <Button
+                            variant="contained"
+                            size="small"
+                            value={tag}
+                            style={{ marginBottom: 10, backgroundColor: tag === selectedFilter ? '#4eb5f5' : '#282c34' }}
+                            onClick={(e) => {
+                                setSelectedFilter(e.target.value);
+                            }}>
+                            {tag}
+                        </Button>
+                    </span>
+                ))}
             </div>
         </div>
     )
@@ -43,8 +44,14 @@ function Filter ({ options, setSelectedOption, tags }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     setSelectedOption: (item) => dispatch(setSelectedOption(item)),
-    setSelectedBrand: (item) => dispatch(setSelectedBrand(item))
+    setSelectedFilter: (item) => dispatch(setSelectedFilter(item))
   };
 };
 
-export default connect(null, mapDispatchToProps)(Filter)
+const mapStateToProps = (state) => {
+    return {
+        selectedFilter: state.shop.selectedFilter
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

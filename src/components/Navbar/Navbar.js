@@ -20,7 +20,7 @@ const Navbar = ({ cart }) => {
   return (
     <div className={styles.navbar}>
       <Link to="/">
-        <h2 className={styles.navbar__logo}>Vintage Tech Store</h2>
+        <h1 className={styles.navbar__logo}>React Bookstore</h1>
       </Link>
       <Link to="/cart">
         <div className={styles.navbar__cart}>

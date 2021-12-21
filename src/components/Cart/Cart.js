@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import CartItem from "./CartItem/CartItem";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { clearCart } from "../../redux/Shopping/shopping-actions";
 
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -35,10 +36,14 @@ const Cart = ({ cart }) => {
         <h4 className={styles.summary__title}>Cart Summary</h4>
         <div className={styles.summary__price}>
           <span>TOTAL: ({totalItems} items)</span>
-          <span>$ {totalPrice}</span>
+          <span>€ {totalPrice}</span>
         </div>
         <Link to='/complete'>
-          <Button color="success" variant="contained" disabled={!totalItems}>
+          <Button
+            onClick={clearCart()}
+            color="success"
+            variant="contained"
+            disabled={!totalItems}>
             Proceed To Checkout
           </Button>
         </Link>
